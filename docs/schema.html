@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Schéma d'Enquête Parlementaire - Flux 1378</title>
+    <style>
+        :root { --fr-blue: #000091; --fr-red: #e1000f; --fr-text: #161616; }
+        body { font-family: 'Marianne', arial, sans-serif; color: var(--fr-text); line-height: 1.5; padding: 2rem; }
+        .dsfr-card { border: 1px solid #ddd; padding: 1.5rem; border-top: 4px solid var(--fr-blue); }
+        h1 { color: var(--fr-blue); text-transform: uppercase; }
+        .flow-container { display: flex; justify-content: center; background: #f6f6f6; padding: 20px; border-radius: 8px; }
+        .entity { fill: white; stroke: var(--fr-blue); stroke-width: 2; }
+        .label { font-size: 12px; font-weight: bold; fill: var(--fr-blue); }
+    </style>
+</head>
+<body>
+
+    <header role="banner" class="dsfr-card">
+        <h1>Rapport d'Investigation Parlementaire</h1>
+        <p><strong>Sujet :</strong> Analyse des transferts du groupement financier 1378</p>
+    </header>
+
+    <main>
+        <section aria-labelledby="diagram-title">
+            <h2 id="diagram-title">Architecture des Flux Inter-Partis</h2>
+            <div class="flow-container">
+                <svg width="600" height="400" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="225" y="50" width="150" height="80" class="entity" />
+                    <text x="300" y="90" text-anchor="middle" class="label">ENSEMBLE ! (1378)</text>
+                    <text x="300" y="110" text-anchor="middle" font-size="10">Entité de centralisation</text>
+
+                    <path d="M225 90 L100 200" stroke="black" stroke-dasharray="5,5" fill="none" marker-end="url(#arrow)" />
+                    <text x="80" y="230" text-anchor="middle" class="label">RENAISSANCE</text>
+
+                    <path d="M300 130 L300 200" stroke="black" stroke-dasharray="5,5" fill="none" marker-end="url(#arrow)" />
+                    <text x="300" y="230" text-anchor="middle" class="label">MODEM</text>
+
+                    <path d="M375 90 L500 200" stroke="black" stroke-dasharray="5,5" fill="none" marker-end="url(#arrow)" />
+                    <text x="520" y="230" text-anchor="middle" class="label">HORIZONS</text>
+
+                    <defs>
+                        <marker id="arrow" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto" markerUnits="strokeWidth">
+                          <path d="M0,0 L0,6 L9,3 z" fill="#000" />
+                        </marker>
+                    </defs>
+                </svg>
+            </div>
+        </section>
+
+        <article class="dsfr-card" style="margin-top: 20px;">
+            <h3>Note de l'enquêteur : Anomalie Comptable</h3>
+            <p>
+                L'usage exclusif des notions de <strong>Produits</strong> et <strong>Charges</strong> au détriment des <strong>Recettes</strong> et <strong>Dépenses</strong> dans les comptes de campagne suggère une volonté d'appliquer des règles de l'économie de marché (profitabilité) à une mission de représentation démocratique. Le refus de perquisition à l'Élysée le 16 avril 2026 renforce la suspicion d'une "comptabilité parallèle" sur les fonds propres de l'institution.
+            </p>
+        </article>
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr" data-fr-scheme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../assets/style.css">
+    <title>SouverainAI - {{Titre_de_la_Page}}</title>
+</head>
+<body>
+    <header role="banner" class="fr-header">...</header>
+
+    <div class="fr-notice fr-notice--info">
+        <div class="fr-container">
+            <p class="fr-notice__title">
+                STATUS : <strong>PHASE {{ARTICLE_CODE}}</strong> 
+                (En cours : {{PROCEDURE_NAME}})
+            </p>
+        </div>
+    </div>
+
+    <main class="fr-container fr-my-4w">
+        {{CONTENU_SPECIFIQUE}}
+    </main>
+
+    <footer class="fr-footer">
+        <div class="fr-container">
+            <p>Hash de session : <code id="session-hash">SHA256:{{SESSION_ID}}</code></p>
+            <p>Référence : Procédure pénale Art. 41, 53, 78.</p>
+        </div>
+    </footer>
+</body>
+</html>
