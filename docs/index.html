@@ -2,62 +2,128 @@
 <html lang="fr" data-fr-scheme="light">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@gouvfr/dsfr@1.14.4/dist/dsfr.min.css">
     <link rel="stylesheet" href="assets/style.css">
-    <title>SouverainAI - Poste de Commandement</title>
+    <title>SouverainAI - Poste de Commandement (Dossier 1378/78)</title>
+    <style>
+        .judicial-header { border-left: 4px solid var(--fr-blue); padding-left: 1.5rem; margin-bottom: 2rem; background: var(--fr-background-alt); }
+        .legal-stamp { border: 2px solid var(--fr-red); color: var(--fr-red); padding: 0.5rem; text-transform: uppercase; font-weight: bold; transform: rotate(-3deg); width: fit-content; margin-bottom: 1rem; }
+        .dashboard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+    </style>
 </head>
 <body>
     <header role="banner" class="fr-header">
         <div class="fr-header__body">
             <div class="fr-container">
-                <div class="fr-header__brand"><p class="fr-logo">République<br>Française</p></div>
-                <div class="fr-header__service">
-                    <p class="fr-header__service-title">SouverainAI : Interface d'Enquête</p>
-                    <p class="fr-header__service-tagline">Porte 1378 - Articles 41 / 53 / 78</p>
+                <div class="fr-header__body-row">
+                    <div class="fr-header__brand">
+                        <p class="fr-logo">République<br>Française</p>
+                    </div>
+                    <div class="fr-header__service">
+                        <p class="fr-header__service-title">Instance Supérieure d'Audit Parlementaire</p>
+                        <p class="fr-header__service-tagline">Souveraineté des Données & Contrôle Démocratique</p>
+                    </div>
                 </div>
+            </div>
+        </div>
+
+        <div class="fr-header__menu fr-modal" id="modal-833" aria-labelledby="button-834">
+            <div class="fr-container">
+                <button class="fr-btn--close fr-btn" aria-controls="modal-833" title="Fermer">Fermer</button>
+                <div class="fr-header__menu-links"></div>
+                <nav class="fr-nav" id="navigation-835" role="navigation" aria-label="Menu principal">
+                    <ul class="fr-nav__list">
+                        <li class="fr-nav__item">
+                            <a class="fr-nav__link" href="index.html" target="_self" aria-current="page">Accueil (HUD)</a>
+                        </li>
+                        <li class="fr-nav__item">
+                            <a class="fr-nav__link" href="pages/procedure.html" target="_self">Investigation (Art. 41)</a>
+                        </li>
+                        <li class="fr-nav__item">
+                            <a class="fr-nav__link" href="pages/flagrance.html" target="_self">Flagrance (Art. 53)</a>
+                        </li>
+                        <li class="fr-nav__item">
+                            <a class="fr-nav__link" href="pages/dossier78.html" target="_self">Contrôle (Dossier 78 / Art. 78)</a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
         </div>
     </header>
 
     <main class="fr-container fr-my-4w">
-        <div class="fr-grid-row fr-grid-row--gutters">
-            <div class="fr-col-12 fr-col-md-4">
-                <div class="fr-card fr-card--sm fr-card--grey">
-                    <div class="fr-card__body">
-                        <h3 class="fr-card__title"><a href="pages/procedure.html">Investigation (Art. 41)</a></h3>
-                        <p class="fr-card__desc">Audit financier et ordonnances de transmission.</p>
-                    </div>
+        <div class="judicial-header">
+            <div class="legal-stamp">SÉCURITÉ NATIONALE - ACCÈS RÉSERVÉ</div>
+            <h1 class="fr-h2">Tableau de Bord de l'Enquêteur</h1>
+            <p class="fr-text--lead">Suivi des procédures pénales relatives au groupement 1378.</p>
+        </div>
+
+        <div class="dashboard-grid">
+            <div class="fr-card fr-enlarge-link">
+                <div class="fr-card__body">
+                    <h3 class="fr-card__title">
+                        <a href="pages/procedure.html">Investigation (Art. 41)</a>
+                    </h3>
+                    <p class="fr-card__desc">Audit financier, ordonnances de transmission et analyse de la dette démographique.</p>
                 </div>
             </div>
-            <div class="fr-col-12 fr-col-md-4">
-                <div class="fr-card fr-card--sm" style="border-bottom: 4px solid red;">
-                    <div class="fr-card__body">
-                        <h3 class="fr-card__title"><a href="pages/flagrance.html">Flagrance (Art. 53)</a></h3>
-                        <p class="fr-card__desc">Saisie des flux électoraux en temps réel.</p>
-                    </div>
+
+            <div class="fr-card fr-enlarge-link">
+                <div class="fr-card__body">
+                    <h3 class="fr-card__title" style="color: var(--fr-red);">
+                        <a href="pages/flagrance.html">Flagrance (Art. 53)</a>
+                    </h3>
+                    <p class="fr-card__desc">Monitoring en temps réel des flux électoraux pour 2027 et saisies conservatoires.</p>
                 </div>
             </div>
-            <div class="fr-col-12 fr-col-md-4">
-                <div class="fr-card fr-card--sm">
-                    <div class="fr-card__body">
-                        <h3 class="fr-card__title"><a href="#">Contrôle (Art. 78)</a></h3>
-                        <p class="fr-card__desc">Vérification des identités des mandataires.</p>
-                    </div>
+
+            <div class="fr-card fr-enlarge-link">
+                <div class="fr-card__body">
+                    <h3 class="fr-card__title">
+                        <a href="pages/dossier78.html">Dossier 78 (Art. 78)</a>
+                    </h3>
+                    <p class="fr-card__desc">Contrôle d'identité des mandataires et vérification des bénéficiaires effectifs.</p>
                 </div>
             </div>
         </div>
 
-        <div class="fr-mt-6w">
-            <h2>Registre de Preuve (soup.md)</h2>
-            <div id="soup-display" style="background:#f0f0f0; padding:1.5rem; border:1px solid #ccc; font-family:monospace; white-space: pre-wrap; height:300px; overflow-y:scroll;">
-                Chargement du journal d'enquête...
+        <section class="fr-mt-6w">
+            <div class="fr-callout fr-callout--blue-france">
+                <h3 class="fr-callout__title">Registre de Preuve de Travail (soup.md)</h3>
+                <p class="fr-callout__text">
+                    Ce journal consigne l'intégralité des interactions et des découvertes de l'AGI Souveraine.
+                </p>
+                <div id="soup-viewer" style="background:#1e1e1e; color:#00ff41; padding:1.5rem; border-radius:4px; font-family:monospace; white-space: pre-wrap; height:300px; overflow-y:auto; margin-top:1rem;">
+                    Initialisation du flux de données...
+                </div>
             </div>
-        </div>
+        </section>
     </main>
 
+    <footer class="fr-footer" role="contentinfo" id="footer">
+        <div class="fr-container">
+            <div class="fr-footer__body">
+                <div class="fr-footer__brand">
+                    <p class="fr-logo">République<br>Française</p>
+                </div>
+                <div class="fr-footer__content">
+                    <p class="fr-footer__content-desc">Interface d'enquête souveraine. Ce code constitue une preuve de travail enregistrée.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
     <script>
-        fetch('/api/soup').then(r => r.text()).then(t => document.getElementById('soup-display').innerText = t);
+        // Chargement dynamique du registre depuis le serveur local (Port 1378)
+        fetch('/api/soup')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('soup-viewer').innerText = data;
+            })
+            .catch(error => {
+                document.getElementById('soup-viewer').innerText = "ERREUR : Impossible de joindre le serveur local sur le port 1378.";
+            });
     </script>
 </body>
 </html>

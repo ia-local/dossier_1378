@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr" data-fr-scheme="light">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@gouvfr/dsfr@1.14.4/dist/dsfr.min.css">
+    <link rel="stylesheet" href="assets/style.css">
+    <title>SouverainAI - Poste de Commandement</title>
+</head>
+<body>
+    <header role="banner" class="fr-header">
+        <div class="fr-header__body">
+            <div class="fr-container">
+                <div class="fr-header__brand"><p class="fr-logo">République<br>Française</p></div>
+                <div class="fr-header__service">
+                    <p class="fr-header__service-title">SouverainAI : Interface d'Enquête</p>
+                    <p class="fr-header__service-tagline">Porte 1378 - Articles 41 / 53 / 78</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="fr-container fr-my-4w">
+        <div class="fr-grid-row fr-grid-row--gutters">
+            <div class="fr-col-12 fr-col-md-4">
+                <div class="fr-card fr-card--sm fr-card--grey">
+                    <div class="fr-card__body">
+                        <h3 class="fr-card__title"><a href="pages/procedure.html">Investigation (Art. 41)</a></h3>
+                        <p class="fr-card__desc">Audit financier et ordonnances de transmission.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="fr-col-12 fr-col-md-4">
+                <div class="fr-card fr-card--sm" style="border-bottom: 4px solid red;">
+                    <div class="fr-card__body">
+                        <h3 class="fr-card__title"><a href="pages/flagrance.html">Flagrance (Art. 53)</a></h3>
+                        <p class="fr-card__desc">Saisie des flux électoraux en temps réel.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="fr-col-12 fr-col-md-4">
+                <div class="fr-card fr-card--sm">
+                    <div class="fr-card__body">
+                        <h3 class="fr-card__title"><a href="#">Contrôle (Art. 78)</a></h3>
+                        <p class="fr-card__desc">Vérification des identités des mandataires.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="fr-mt-6w">
+            <h2>Registre de Preuve (soup.md)</h2>
+            <div id="soup-display" style="background:#f0f0f0; padding:1.5rem; border:1px solid #ccc; font-family:monospace; white-space: pre-wrap; height:300px; overflow-y:scroll;">
+                Chargement du journal d'enquête...
+            </div>
+        </div>
+    </main>
+
+    <script>
+        fetch('/api/soup').then(r => r.text()).then(t => document.getElementById('soup-display').innerText = t);
+    </script>
+</body>
+</html>
