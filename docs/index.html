@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@gouvfr/dsfr@1.14.4/dist/dsfr.min.css">
     <link rel="stylesheet" href="assets/style.css">
-    <title>SouverainAI - Poste de Commandement (Dossier 1378/78)</title>
+    <title>SouverainAI - Dossier 1378 - Accueil</title>
     <style>
-        .judicial-header { border-left: 4px solid var(--fr-blue); padding-left: 1.5rem; margin-bottom: 2rem; background: var(--fr-background-alt); }
-        .legal-stamp { border: 2px solid var(--fr-red); color: var(--fr-red); padding: 0.5rem; text-transform: uppercase; font-weight: bold; transform: rotate(-3deg); width: fit-content; margin-bottom: 1rem; }
-        .dashboard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+        .judicial-header { border-left: 4px solid var(--blue-france-sun-113-625); padding-left: 1.5rem; margin-bottom: 2rem; }
+        .hero-banner { background-color: var(--background-alt-grey); padding: 3rem 0; border-bottom: 1px solid #ddd; }
+        .status-badge { display: inline-flex; align-items: center; }
+        #soup-display { background: #161616; color: #00ff41; font-family: 'JetBrains Mono', monospace; padding: 1rem; height: 250px; overflow-y: auto; border-radius: 4px; border: 1px solid #333; }
+        .dossier-special { border-top: 3px solid var(--fr-blue); }
     </style>
 </head>
 <body>
@@ -21,21 +23,23 @@
                         <p class="fr-logo">République<br>Française</p>
                     </div>
                     <div class="fr-header__service">
-                        <p class="fr-header__service-title">Instance Supérieure d'Audit Parlementaire</p>
-                        <p class="fr-header__service-tagline">Souveraineté des Données & Contrôle Démocratique</p>
+                        <a href="index.html" title="Accueil - SouverainAI">
+                            <p class="fr-header__service-title">Instance Supérieure d'Audit Parlementaire</p>
+                        </a>
+                        <p class="fr-header__service-tagline">Enquête Dossier 1378 : Souveraineté & Transparence</p>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div class="fr-header__menu fr-modal" id="modal-833" aria-labelledby="button-834">
+        
+        <div class="fr-header__menu fr-modal" id="modal-menu" aria-labelledby="button-menu">
             <div class="fr-container">
-                <button class="fr-btn--close fr-btn" aria-controls="modal-833" title="Fermer">Fermer</button>
+                <button class="fr-btn--close fr-btn" aria-controls="modal-menu">Fermer</button>
                 <div class="fr-header__menu-links"></div>
-                <nav class="fr-nav" id="navigation-835" role="navigation" aria-label="Menu principal">
+                <nav class="fr-nav" id="navigation-main" role="navigation" aria-label="Menu principal">
                     <ul class="fr-nav__list">
                         <li class="fr-nav__item">
-                            <a class="fr-nav__link" href="index.html" target="_self" aria-current="page">Accueil (HUD)</a>
+                            <a class="fr-nav__link" href="index.html" target="_self" aria-current="page">Accueil</a>
                         </li>
                         <li class="fr-nav__item">
                             <a class="fr-nav__link" href="pages/procedure.html" target="_self">Investigation (Art. 41)</a>
@@ -44,7 +48,16 @@
                             <a class="fr-nav__link" href="pages/flagrance.html" target="_self">Flagrance (Art. 53)</a>
                         </li>
                         <li class="fr-nav__item">
-                            <a class="fr-nav__link" href="pages/dossier78.html" target="_self">Contrôle (Dossier 78 / Art. 78)</a>
+                            <a class="fr-nav__link" href="pages/audit.html" target="_self">Audit Financier</a>
+                        </li>
+                        <li class="fr-nav__item">
+                            <a class="fr-nav__link" href="pages/discours.html" target="_self">Analyse du Prononcé</a>
+                        </li>
+                        <li class="fr-nav__item">
+                            <a class="fr-nav__link" href="pages/climat.html" target="_self">Justice Climatique</a>
+                        </li>
+                        <li class="fr-nav__item">
+                            <a class="fr-nav__link" href="https://github.com/ia-local/dossier_1378" target="_blank" rel="noopener">Code Source (GitHub)</a>
                         </li>
                     </ul>
                 </nav>
@@ -52,50 +65,103 @@
         </div>
     </header>
 
-    <main class="fr-container fr-my-4w">
-        <div class="judicial-header">
-            <div class="legal-stamp">SÉCURITÉ NATIONALE - ACCÈS RÉSERVÉ</div>
-            <h1 class="fr-h2">Tableau de Bord de l'Enquêteur</h1>
-            <p class="fr-text--lead">Suivi des procédures pénales relatives au groupement 1378.</p>
-        </div>
-
-        <div class="dashboard-grid">
-            <div class="fr-card fr-enlarge-link">
-                <div class="fr-card__body">
-                    <h3 class="fr-card__title">
-                        <a href="pages/procedure.html">Investigation (Art. 41)</a>
-                    </h3>
-                    <p class="fr-card__desc">Audit financier, ordonnances de transmission et analyse de la dette démographique.</p>
+    <main id="content">
+        <section class="hero-banner">
+            <div class="fr-container">
+                <div class="fr-grid-row">
+                    <div class="fr-col-12">
+                        <div class="judicial-header">
+                            <h1 class="fr-h1">Interface Souveraine d'Investigation</h1>
+                            <p class="fr-text--lead">Poste de contrôle central de l'enquête parlementaire sur les flux financiers et la manipulation sémantique du groupement 1378.</p>
+                        </div>
+                        <div class="status-badge">
+                            <p class="fr-badge fr-badge--info fr-mr-2v">Serveur JS : Actif (Port 1378)</p>
+                            <p class="fr-badge fr-badge--success">AGI : Llama-3.1-8b-instant Ready</p>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <div class="fr-card fr-enlarge-link">
-                <div class="fr-card__body">
-                    <h3 class="fr-card__title" style="color: var(--fr-red);">
-                        <a href="pages/flagrance.html">Flagrance (Art. 53)</a>
-                    </h3>
-                    <p class="fr-card__desc">Monitoring en temps réel des flux électoraux pour 2027 et saisies conservatoires.</p>
+        <section class="fr-container fr-mt-6w fr-mb-4w">
+            <h2 class="fr-h3">Axes d'Investigation Principaux</h2>
+            <div class="fr-grid-row fr-grid-row--gutters">
+                <div class="fr-col-12 fr-col-md-4">
+                    <div class="fr-card fr-enlarge-link">
+                        <div class="fr-card__body">
+                            <h3 class="fr-card__title">
+                                <a href="pages/procedure.html">Investigation Art. 41</a>
+                            </h3>
+                            <p class="fr-card__desc">Dossier de mise sous tutelle, analyse des "Produits d'exploitation" et obstruction à la justice.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="fr-col-12 fr-col-md-4">
+                    <div class="fr-card fr-enlarge-link">
+                        <div class="fr-card__body">
+                            <h3 class="fr-card__title">
+                                <a href="pages/flagrance.html" style="color: var(--error-425-625);">Flagrance Art. 53</a>
+                            </h3>
+                            <p class="fr-card__desc">Monitoring en temps réel des flux électoraux pré-2027 et saisies conservatoires.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="fr-col-12 fr-col-md-4">
+                    <div class="fr-card fr-enlarge-link">
+                        <div class="fr-card__body">
+                            <h3 class="fr-card__title">
+                                <a href="pages/audit.html">Audit Financier & CNCCFP</a>
+                            </h3>
+                            <p class="fr-card__desc">Étude des flux entre entités et détournement des mandats électoraux.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <div class="fr-card fr-enlarge-link">
-                <div class="fr-card__body">
-                    <h3 class="fr-card__title">
-                        <a href="pages/dossier78.html">Dossier 78 (Art. 78)</a>
-                    </h3>
-                    <p class="fr-card__desc">Contrôle d'identité des mandataires et vérification des bénéficiaires effectifs.</p>
+        <section class="fr-container fr-mb-6w">
+            <h2 class="fr-h3">Dossiers Spécifiques & Expertises</h2>
+            <div class="fr-grid-row fr-grid-row--gutters">
+                <div class="fr-col-12 fr-col-md-6">
+                    <div class="fr-card fr-enlarge-link dossier-special">
+                        <div class="fr-card__body">
+                            <h3 class="fr-card__title">
+                                <a href="pages/discours.html">Analyse du Prononcé</a>
+                            </h3>
+                            <p class="fr-card__desc">Laboratoire d'audit sémantique JavaScript. Détection des occurrences (Majorité, Ensemble, Guerre) et traçage de la polarisation.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="fr-col-12 fr-col-md-6">
+                    <div class="fr-card fr-enlarge-link dossier-special" style="border-top-color: var(--fr-red);">
+                        <div class="fr-card__body">
+                            <h3 class="fr-card__title">
+                                <a href="pages/climat.html">Justice Climatique (SAI)</a>
+                            </h3>
+                            <p class="fr-card__desc">Signalement de flagrant délit : impact des aérosols stratosphériques, Accord de Paris et détournement des financements innovants.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <section class="fr-mt-6w">
-            <div class="fr-callout fr-callout--blue-france">
-                <h3 class="fr-callout__title">Registre de Preuve de Travail (soup.md)</h3>
-                <p class="fr-callout__text">
-                    Ce journal consigne l'intégralité des interactions et des découvertes de l'AGI Souveraine.
-                </p>
-                <div id="soup-viewer" style="background:#1e1e1e; color:#00ff41; padding:1.5rem; border-radius:4px; font-family:monospace; white-space: pre-wrap; height:300px; overflow-y:auto; margin-top:1rem;">
-                    Initialisation du flux de données...
+<section class="fr-container fr-pb-8w">
+            <div class="fr-grid-row">
+                <div class="fr-col-12">
+                    <div class="fr-p-3w" style="background: #f6f6f6; border: 1px solid #ddd; border-left: 4px solid var(--fr-blue); border-radius: 4px;">
+                        <h2 class="fr-h4">Bilan Public de l'Enquête (Mise à jour automatique)</h2>
+                        <div id="bilan-display" class="fr-text--sm">
+                            <ul class="fr-list">
+                                <li><strong>Statut Légal :</strong> Procédures Art. 41 et Art. 53 ouvertes.</li>
+                                <li><strong>Obstruction constatée :</strong> Refus d'accès comptable (16/04/2026).</li>
+                                <li><strong>Audit Sémantique :</strong> Manipulation de niveau sévère détectée sur le vocable "Majorité/Ensemble".</li>
+                                <li><strong>Justice Climatique :</strong> Dossier Injections Stratosphériques en cours d'instruction.</li>
+                            </ul>
+                        </div>
+                        <p class="fr-text--xs fr-mt-2w" style="color: #666;">
+                            <em>Note de transparence : Le journal de travail complet, l'historique des requêtes et le code source de l'intelligence artificielle souveraine sont consultables par les auditeurs assermentés sur le dépôt GitHub (Dossier 1378).</em>
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -108,22 +174,28 @@
                     <p class="fr-logo">République<br>Française</p>
                 </div>
                 <div class="fr-footer__content">
-                    <p class="fr-footer__content-desc">Interface d'enquête souveraine. Ce code constitue une preuve de travail enregistrée.</p>
+                    <p class="fr-footer__content-desc">Interface d'audit citoyen opérant sous les articles 41, 53 et 78 du Code de Procédure Pénale.</p>
                 </div>
             </div>
         </div>
     </footer>
 
     <script>
-        // Chargement dynamique du registre depuis le serveur local (Port 1378)
-        fetch('/api/soup')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('soup-viewer').innerText = data;
-            })
-            .catch(error => {
-                document.getElementById('soup-viewer').innerText = "ERREUR : Impossible de joindre le serveur local sur le port 1378.";
-            });
+        // Chargement dynamique du fichier soup.md via le serveur Node.js local
+        async function loadSoup() {
+            try {
+                const response = await fetch('/api/soup');
+                if (response.ok) {
+                    const text = await response.text();
+                    document.getElementById('soup-display').innerText = text;
+                } else {
+                    document.getElementById('soup-display').innerText = "> Erreur : Registre soup.md inaccessible.";
+                }
+            } catch (e) {
+                document.getElementById('soup-display').innerText = "> Serveur local déconnecté. Passage en mode consultation statique (hors-ligne).";
+            }
+        }
+        window.onload = loadSoup;
     </script>
 </body>
 </html>

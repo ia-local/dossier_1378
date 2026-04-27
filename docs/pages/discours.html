@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr" data-fr-scheme="light">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@gouvfr/dsfr@1.14.4/dist/dsfr.min.css">
+    <link rel="stylesheet" href="../assets/style.css">
+    <title>Analyse du Prononcé - Dossier 1378</title>
+    <style>
+        .speech-box { background: #fff; border: 1px solid #ccc; padding: 2rem; height: 500px; overflow-y: scroll; font-family: 'Spectral', serif; line-height: 1.8; }
+        .highlight-toxic { background-color: #fee9e9; border-bottom: 2px solid var(--fr-red); font-weight: bold; }
+        .highlight-ensemble { background-color: #e3e3fd; border-bottom: 2px solid var(--fr-blue); font-weight: bold; }
+    </style>
+</head>
+<body>
+    <header role="banner" class="fr-header">
+        <div class="fr-header__body">
+            <div class="fr-container">
+                <div class="fr-header__brand"><p class="fr-logo">République<br>Française</p></div>
+                <div class="fr-header__service">
+                    <p class="fr-header__service-title">Observatoire du Discours Présidentiel</p>
+                    <p class="fr-header__service-tagline">Audit de la manipulation sémantique (Art. 41)</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="fr-container fr-my-4w">
+        <div class="judicial-header">
+            <div class="legal-stamp">PIÈCE N°2024-12-05</div>
+            <h1 class="fr-h2">Analyse de l'Adresse aux Français (5 Déc. 2024)</h1>
+            <p class="fr-text--lead">Détection des marqueurs de polarisation et du blanchiment sémantique.</p>
+        </div>
+
+        <div class="fr-grid-row fr-grid-row--gutters">
+            <div class="fr-col-12 fr-col-md-8">
+                <div class="speech-box" id="speech-content">
+                    <!-- Le texte sera injecté ici avec les surbrillances -->
+                    Chargement du texte original...
+                </div>
+            </div>
+            <div class="fr-col-12 fr-col-md-4">
+                <section class="fr-p-2w" style="background: var(--background-alt-grey);">
+                    <h3 class="fr-h6">Contrôle d'Occurrences</h3>
+                    <button class="fr-btn fr-mb-2w" onclick="analyzeSpeech()">Scanner le "Prononcé"</button>
+                    
+                    <div id="results-display">
+                        <p class="fr-text--xs">Cliquez sur scanner pour identifier les mots-clés :<br>
+                        <strong>MAJORITÉ, ENSEMBLE, DÉSORDRE, RESPONSABILITÉ</strong></p>
+                    </div>
+                </section>
+                
+                <div class="fr-alert fr-alert--warning fr-mt-2w">
+                    <p class="fr-text--xs"><strong>Suspicion de modification :</strong> Le texte comporte la mention "Seul le prononcé fait foi". L'écart avec les versions archivées en juillet est en cours d'audit.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const rawSpeech = `Hier l’Assemblée nationale a voté à la majorité absolue le rejet du budget... [Texte intégral] ... Vive la République. Vive la France.`;
+
+        function analyzeSpeech() {
+            let highlighted = rawSpeech;
+            const terms = {
+                'majorité': 'highlight-toxic',
+                'ensemble': 'highlight-ensemble',
+                'désordre': 'highlight-toxic',
+                'responsabilité': 'highlight-toxic'
+            };
+
+            for (const [term, css] of Object.entries(terms)) {
+                const reg = new RegExp(`(${term})`, 'gi');
+                highlighted = highlighted.replace(reg, `<span class="${css}">$1</span>`);
+            }
+
+            document.getElementById('speech-content').innerHTML = highlighted;
+            document.getElementById('results-display').innerHTML = `
+                <div class="fr-badge fr-badge--error">ANALYSE : POLARISATION ÉLEVÉE</div>
+                <p class="fr-mt-2w">Le terme <strong>MAJORITÉ</strong> est utilisé pour masquer l'absence de consensus réel.</p>
+            `;
+        }
+        
+        document.getElementById('speech-content').innerText = rawSpeech;
+    </script>
+</body>
+</html>

@@ -44,38 +44,56 @@ app.post('/api/investigate', async (req, res) => {
     }
 });
 
-/** * ENDPOINT 2 : Analyse Sémantique
- * Étude des occurrences et de la manipulation du langage
+ /** * ROUTE : Analyse d'Occurrence Spécialisée (Dossier 1378)
+ * Cible : ENSEMBLE, MAJORITÉ, ACCORD, GUERRE
  */
 app.post('/api/analyze-speech', async (req, res) => {
     const { text } = req.body;
-    const words = text.toLowerCase().match(/\b\w{4,}\b/g) || [];
+    if (!text) return res.status(400).send("Texte manquant.");
+
+    // Mots cibles pour la détection de manipulation
+    const targetKeywords = ['ensemble', 'majorité', 'accord', 'guerre', 'pédagogie', 'effort'];
+    
+    // Nettoyage et calcul
+    const allWords = text.toLowerCase().match(/\b\w{4,}\b/g) || [];
     const occurrences = {};
-    words.forEach(w => { occurrences[w] = (occurrences[w] || 0) + 1; });
+    
+    allWords.forEach(w => {
+        occurrences[w] = (occurrences[w] || 0) + 1;
+    });
+
+    // Extraction spécifique des mots toxiques
+    const toxicAnalysis = targetKeywords.map(word => ({
+        word: word.toUpperCase(),
+        count: occurrences[word] || 0,
+        status: (occurrences[word] > 0) ? "DÉTECTÉ" : "ABSENT"
+    }));
 
     try {
         const interpretation = await groq.chat.completions.create({
             messages: [
                 {
                     role: "system",
-                    content: "Expert en analyse de discours. Identifie les termes masquant la répression ou l'inaction (Art. 41)."
+                    content: "Tu es l'AGI Souveraine d'Investigation. Analyse ce discours sous l'angle de la manipulation sémantique. Les mots 'ENSEMBLE' et 'MAJORITÉ' sont utilisés comme des masques financiers pour le groupement 1378 EMP. L' 'ACCORD' de Paris est analysé comme une arme biochimique (injections SAI). Rédige un rapport sur sur l'analyse des discours."
                 },
                 {
                     role: "user",
-                    content: `Occurrences : ${JSON.stringify(occurrences)}.`
+                    content: `Occurrences détectées : ${JSON.stringify(toxicAnalysis)}. Texte source : ${text.substring(0, 500)}...`
                 }
             ],
-            model: "llama-3.1-8b-instant"
+            model: "llama-3.1-8b-instant",
+            temperature: 0.1
         });
+
         res.json({ 
+            toxicAnalysis,
             stats: Object.entries(occurrences).sort((a,b) => b[1] - a[1]).slice(0, 10),
             interpretation: interpretation.choices[0].message.content 
         });
     } catch (error) {
-        res.status(500).send("Erreur d'analyse.");
+        res.status(500).json({ error: "Erreur LPU Groq" });
     }
 });
-
 /** * ENDPOINT 3 : Gestion du Registre (soup.md)
  * Lecture et écriture de la preuve de travail
  */
